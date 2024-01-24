@@ -1,17 +1,13 @@
 package org.example.patterns.design;
 
 
-import org.example.patterns.design.adapter.MySqlAdapter;
-import org.example.patterns.design.commands.MySqlCommands;
-import org.example.patterns.design.commands.OracleCommands;
+import org.example.patterns.design.bancos.Santander;
 
 public class Main {
     public static void main(String[] args) {
-        OracleCommands oracleCommands = new OracleCommands();
-        oracleCommands.insert();
 
-        MySqlAdapter mySqlAdapter = new MySqlAdapter(new MySqlCommands());
-        mySqlAdapter.insert();
+        CalculadoraDeJuros calculadoraDeJuros = new CalculadoraDeJuros(new Santander());
+        calculadoraDeJuros.calculaJuros(new Pedido(10));
 
     }
 }
